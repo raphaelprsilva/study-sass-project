@@ -2,6 +2,7 @@ $dark-gray: #464646;
 $light-gray: #eaeaeb;
 $purple: #a050be;
 $yellow: #fabe50;
+$img-width: 45%;
 
 .header {
   font-family: Arial, Helvetica, sans-serif;
@@ -187,5 +188,84 @@ $yellow: #fabe50;
   &__txt {
     margin: auto;
     font-size: 14px;
+  }
+}
+
+.about {
+  border: 1px solid red;
+  margin: 0 auto 40px;
+  width: 80%;
+
+  &__title {
+    background-color: $light-gray;
+    text-align: center;
+    padding: 20px;
+  }
+
+  &__h1 {
+    color: $dark-gray;
+    font-size: 22px;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 5px;
+  }
+
+  .breadcrumb {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+
+    &__link {
+      color: $dark-gray;
+      font-size: 12px;
+      text-decoration: none;
+
+      &:hover {
+        color: $purple;
+        text-decoration: $purple;
+      }
+    }
+
+    &__img {
+      margin: 8px;
+      width: 10px;
+    }
+  }
+
+  &__img {
+    margin-bottom: 20px;
+    width: 100%;
+  }
+
+  &__intro {
+    color: $dark-gray;
+    font-size: 16px;
+    font-weight: 100;
+    margin: 30px auto;
+    text-align: center;
+    width: 70%;
+  }
+
+  &__split {
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  &__img-description {
+    width: $img-width;
+  }
+
+  &__txt {
+    width: calc(100% - #{$img-width});
+  }
+
+  &__p {
+    color: $dark-gray;
+    font-size: 14px;
+    padding: 10px 20px;
   }
 }
