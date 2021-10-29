@@ -18,6 +18,24 @@ $img-width: 45%;
   #{$property}: $jty-cnt;
 }
 
+@mixin for-phone-only {
+  @media (max-width: 767.98px) {
+    @content;
+  }
+}
+
+@mixin for-tablet-only {
+  @media (min-width: 768px) and (max-width: 1199.98px) {
+    @content;
+  }
+}
+
+@mixin for-desktop-only {
+  @media (min-width: 1200px) {
+    @content;
+  }
+}
+
 .header {
   font-family: Arial, Helvetica, sans-serif;
 
