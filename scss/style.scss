@@ -4,6 +4,9 @@ $purple: #a050be;
 $yellow: #fabe50;
 $img-width: 45%;
 
+%no-decoration {text-decoration: none;}
+%u-decoration {text-decoration: underline;}
+
 .header {
   font-family: Arial, Helvetica, sans-serif;
 
@@ -168,6 +171,67 @@ $img-width: 45%;
 
     &:hover {
       color: $purple;
+    }
+  }
+
+  &__sidebar {
+    padding: 40px 10px;
+    width: 25%;
+  }
+
+  .sidebar {
+    &__top {
+      border: 1px solid $light-gray;
+      padding: 15px 20px;
+    }
+
+    &__title {
+      background-color: $yellow;
+      text-align: center;
+      padding: 20px 10px;
+      margin: 0;
+      letter-spacing: 1.5px;
+    }
+
+    &__posts {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    &__list {
+      align-items: center;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: 15px 0;
+      &:not(:last-child) {
+        border-bottom: 1px dashed $light-gray;
+      }
+    }
+
+    &__img {
+      width: 40%;
+    }
+
+    &__details {
+      width: 50%;
+      padding-left: 10px;
+    }
+
+    &__post-title {
+      color: $purple;
+      font-size: 14px;
+      @extend %no-decoration;
+
+      &:hover {
+        @extend %u-decoration;
+      }
+    }
+
+    &__post-date {
+      font-size: 12px;
+      margin: 5px 0 0 0;
     }
   }
 }
