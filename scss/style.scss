@@ -49,18 +49,32 @@ $img-width: 45%;
 
   .menu {
     &__list {
-      border-top: 1px solid $light-gray;
-      border-bottom: 1px solid $light-gray;
-      display: flex;
-      justify-content: center;
-      margin-left: auto;
-      margin-right: auto;
-      padding: 20px 0;
-      width: 80%;
+      @include for-phone-only {
+        flex-wrap: wrap;
+        padding: 15px 0;
+        width: 90%;
+      }
+      @include for-tablet-only {
+        padding: 20px 0;
+        width: 80%;
+      }
+      @include for-desktop-only {
+        border-top: 1px solid $light-gray;
+        border-bottom: 1px solid $light-gray;
+        display: flex;
+        justify-content: center;
+        margin-left: auto;
+        margin-right: auto;
+        padding: 20px 0;
+        width: 80%;
+      }
     }
 
     &__links {
       position: relative;
+      @include for-phone-only {
+        padding: 5px 0;
+      }
 
       &:not(:last-child)::after {
         background-color: $light-gray;
@@ -93,6 +107,9 @@ $img-width: 45%;
   justify-content: center;
 
   &__content {
+    @include for-phone-only {
+      width: 100%;
+    }
     width: 70%;
     padding: 40px 8px;
   }
