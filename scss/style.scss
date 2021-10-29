@@ -36,69 +36,16 @@ $img-width: 45%;
   }
 }
 
-.header {
-  font-family: Arial, Helvetica, sans-serif;
-
-  &__logo {
-    text-align: center;
-  }
-
-  &__img {
-    max-width: 350px;
-  }
-
-  .menu {
-    &__list {
-      @include for-phone-only {
-        flex-wrap: wrap;
-        padding: 15px 0;
-        width: 90%;
-      }
-      @include for-tablet-only {
-        padding: 20px 0;
-        width: 80%;
-      }
-      @include for-desktop-only {
-        border-top: 1px solid $light-gray;
-        border-bottom: 1px solid $light-gray;
-        display: flex;
-        justify-content: center;
-        margin-left: auto;
-        margin-right: auto;
-        padding: 20px 0;
-        width: 80%;
-      }
-    }
-
-    &__links {
-      position: relative;
-      @include for-phone-only {
-        padding: 5px 0;
-      }
-
-      &:not(:last-child)::after {
-        background-color: $light-gray;
-        bottom: 0;
-        content: "";
-        height: 15px;
-        margin: auto;
-        position: absolute;
-        top: 0;
-        right: -3px;
-        width: 1px;
-      }
-    }
-
-    &__link {
-      color: $dark-gray;
-      padding: 0 25px;
-
-      &:hover {
-        color: $purple;
-      }
-    }
-  }
+@function calculateRem($size) {
+  @return ($size / 16px) * 1rem;
 }
+
+@mixin fontSize($size) {
+  font-size: calculateRem($size);
+}
+
+@import 'header', 'footer', 'about', 'article';
+
 
 .main {
   display: flex;
@@ -123,7 +70,7 @@ $img-width: 45%;
 
   &__title {
     color: $dark-gray;
-    font-size: 22px;
+    @include fontSize(22px);
     letter-spacing: 1.5;
     text-decoration: none;
 
@@ -141,7 +88,7 @@ $img-width: 45%;
   }
 
   &__date {
-    font-size: 12px;
+    @include fontSize(12px);
     font-style: italic;
     margin: 0 10px;
   }
@@ -150,7 +97,7 @@ $img-width: 45%;
     border: 1px solid $purple;
     color: $purple;
     margin: 0 10px;
-    font-size: 14px;
+    @include fontSize(14px);
     padding: 5px 7px;
   }
 
@@ -172,7 +119,7 @@ $img-width: 45%;
   &__btn {
     background-color: $yellow;
     color: $purple;
-    font-size: 16px;
+    @include fontSize(16px);
     letter-spacing: 1.5;
     padding: 10px 20px;
     text-decoration: none;
@@ -198,7 +145,7 @@ $img-width: 45%;
   }
 
   &__p {
-    font-size: 14px;
+    @include fontSize(14px);
     color: $dark-gray;
     margin-top: 10px;
     margin-bottom: 10px;
@@ -210,7 +157,7 @@ $img-width: 45%;
 
   &__a {
     color: $dark-gray;
-    font-size: 14px;
+    @include fontSize(14px);
     margin-top: 10px;
     margin-bottom: 10px;
     text-decoration: none;
@@ -265,7 +212,7 @@ $img-width: 45%;
 
     &__post-title {
       color: $purple;
-      font-size: 14px;
+      @include fontSize(14px);
       @extend %no-decoration;
 
       &:hover {
@@ -274,177 +221,8 @@ $img-width: 45%;
     }
 
     &__post-date {
-      font-size: 12px;
+      @include fontSize(12px);
       margin: 5px 0 0 0;
     }
-  }
-}
-
-.footer {
-  bottom: 0;
-  font-family: Arial, Helvetica, sans-serif;
-  left: 50%;
-  padding: 20px 0;
-  position: relative;
-  text-align: center;
-  transform: translateX(-50%);
-
-  &__logo {
-    max-width: 100px;
-  }
-
-  &__txt {
-    margin: auto;
-    font-size: 14px;
-  }
-}
-
-.about {
-  border: 1px solid red;
-  margin: 0 auto 40px;
-  width: 80%;
-
-  &__title {
-    background-color: $light-gray;
-    text-align: center;
-    padding: 20px;
-  }
-
-  &__h1 {
-    color: $dark-gray;
-    font-size: 22px;
-    letter-spacing: 1px;
-    margin-bottom: 10px;
-    margin-left: 0;
-    margin-right: 0;
-    margin-top: 5px;
-  }
-
-  .breadcrumb {
-    align-items: center;
-    display: flex;
-    justify-content: center;
-
-    &__link {
-      color: $dark-gray;
-      font-size: 12px;
-      text-decoration: none;
-
-      &:hover {
-        color: $purple;
-        text-decoration: $purple;
-      }
-    }
-
-    &__img {
-      margin: 8px;
-      width: 10px;
-    }
-  }
-
-  &__img {
-    margin-bottom: 20px;
-    width: 100%;
-  }
-
-  &__intro {
-    color: $dark-gray;
-    font-size: 16px;
-    font-weight: 100;
-    margin: 30px auto;
-    text-align: center;
-    width: 70%;
-  }
-
-  &__split {
-    align-items: center;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-
-  &__img-description {
-    width: $img-width;
-  }
-
-  &__txt {
-    width: calc(100% - #{$img-width});
-  }
-
-  &__p {
-    color: $dark-gray;
-    font-size: 14px;
-    padding: 10px 20px;
-  }
-}
-
-.article {
-  width: 80%;
-  margin: 0 auto 40px;
-  font-family: Arial, Helvetica, sans-serif;
-
-  &__title {
-      background-color: $light-gray;
-      text-align: center;
-      padding: 20px;
-  }
-  &__h1 {
-      font-size: 22px;
-      color: $dark-gray;
-      letter-spacing: 1px;
-      margin-top: 5px;
-      margin-bottom: 10px;
-      margin-left: 0;
-      margin-right: 0;
-  }
-
-  .breadcrumb {
-    @include flx(justify-content, center);
-    align-items: center;
-    &__link {
-      font-size: 12px;
-      @extend %no-decoration;
-      color: $dark-gray;
-
-      &:hover {
-        @extend %u-decoration;
-        color: $purple;
-      }
-    }
-    &__img {
-      width: 10px;
-      margin: 8px;
-    }
-  }
-
-  &__img {
-    margin-bottom: 20px;
-    width: 100%;
-  }
-
-  &__details {
-    @include flx(justify-content, center);
-    align-items: center;
-  }
-
-  &__date {
-    font-size: 12px;
-    font-style: italic;
-    margin: 0 10px;
-  }
-
-  &__tag {
-    border: 1px solid $purple;
-    color: $purple;
-    font-size: 14px;
-    margin: 0 10px;
-    padding: 5px 7px;
-  }
-
-  &__content {
-    font-weight: 100;
-    font-size: 14px;
-    color: $dark-gray;
-    padding: 10px 20px;
   }
 }
